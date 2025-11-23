@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8 Object Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Object Detection</h1>
+            <p>Upload an image to detect objects using YOLOv8</p>
+        </header>
+
+        <main>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="upload">Image Upload</button>
+                <button class="tab-btn" data-tab="camera">Live Camera</button>
+            </div>
+
+            <div id="upload-section" class="section active">
+                <div class="upload-controls">
+                    <label for="file-upload" class="custom-file-upload">
+                        <span id="file-label">Choose Image</span>
+                    </label>
+                    <input id="file-upload" type="file" accept="image/*" />
+                    <button id="detect-btn" disabled>Detect Objects</button>
+                </div>
+
+                <div class="results-section">
+                    <div class="image-container">
+                        <div class="image-box" id="original-box">
+                            <h3>Original</h3>
+                            <img id="original-image" src="" alt="Original Image" style="display: none;">
+                        </div>
+                        <div class="image-box" id="result-box">
+                            <h3>Result</h3>
+                            <img id="result-image" src="" alt="Detection Result" style="display: none;">
+                            <div id="loading" class="loading" style="display: none;">Processing...</div>
+                        </div>
+                    </div>
+
+                    <div id="detections-list" class="detections-list" style="display: none;">
+                        <h3>Detections</h3>
+                        <ul id="detection-items"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="camera-section" class="section" style="display: none;">
+                <div class="camera-container">
+                    <img id="video-feed" src="" alt="Live Camera Feed">
+                </div>
+                <p class="camera-instruction">Real-time object detection running on server</p>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
