@@ -81,4 +81,4 @@ Then open **http://localhost:5000**. Use the **Image Upload** tab to detect obje
 
 ## License
 
-Copyright © 2026 Nedim Hüray. All rights reserved.
+Released under the [MIT License](LICENSE).
